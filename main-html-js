@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+
+            const button = document.createElement('button');
+            document.body.appendChild(button);
+
+            const btn = document.querySelector('button');
+            btn.textContent = 'attend';
+
+            const p = document.createElement('p');
+            document.body.appendChild(p);
+
+            const para = document.querySelector('p');
+
+
+            const confrence = {
+                numOfAttanedees: 0,
+                increment: function() {
+                   return this.numOfAttanedees++;
+                }
+            }
+            
+            const retrieve = confrence.increment;
+            const boundIncrement = retrieve.bind(confrence);
+
+            btn.addEventListener('click', function() {
+                boundIncrement();
+                para.textContent =`Number of attendees is: ${confrence.numOfAttanedees}`;
+            });
+           
+
+
+        </script>
+    </body>
+</html>
+
+
